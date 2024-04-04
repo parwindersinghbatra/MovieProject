@@ -1,14 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Movie from './pages/Movie';
+import TVshows from './pages/TVshows';
+import MovieDetails from './pages/MovieDetails';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Home
+  },
+  {
+    path: "/movies",
+    Component: Movie
+  },
+  {
+    path: "/tv-shows",
+    Component: TVshows
+  },
+  {
+    path:"/movies/:id",
+    Component:MovieDetails
+  }
+])
 
 function App() {
   return (
-    <div className="App">
-      <div className='header font-bold underline'>
-      <h1>Hello World!</h1>
-      </div>
-        
-    </div>
+      <RouterProvider router={router}>
+      </RouterProvider>
+    
   );
 }
 
